@@ -14,10 +14,10 @@ public interface CursosDao extends JpaRepository<Curso, Integer> {
 
 	@Transactional
     @Modifying
-    @Query("UPDATE cursos c SET c.duracion = :nuevaDuracion WHERE c.codCurso = :codCurso")
+    @Query("UPDATE Curso c SET c.duracion = :nuevaDuracion WHERE c.codCurso = :codCurso")
     void actualizarDuracion(int codigo, int nuevaDuracion);
 	
-	@Query("SELECT c FROM cursos c WHERE c.precio >= :minPrecio AND c.precio <= :maxPrecio")
+	@Query("SELECT c FROM Curso c WHERE c.precio >= :minPrecio AND c.precio <= :maxPrecio")
     List<Curso> cursosPorPrecio(int minPrecio, int maxPrecio);
 			
 }
